@@ -9,6 +9,8 @@ class MenuItemSerializer(serializers.ModelSerializer):
 
 
 class CartSerializer(serializers.ModelSerializer):
+    menuitem = MenuItemSerializer
+    # unit_price = MenuItem.object.filter(title=MenuItemSerializer).price
     class Meta:
         model = Cart
         fields = ['id', 'user', 'menuitem', 'quantity', 'unit_price', 'price']
