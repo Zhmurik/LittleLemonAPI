@@ -1,5 +1,5 @@
 from django.contrib import auth
-from rest_framework import generics
+from rest_framework import generics, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
@@ -36,4 +36,4 @@ class CartView(generics.ListAPIView, generics.CreateAPIView, generics.DestroyAPI
         if request.user.groups.filter(name__in=['Manager', 'Delivery crew']).exists():
             return Response({"message": "Access denied"}, 403)
         else:
-            generics.DestroyAPIView.delete(self, request, *args, **kwargs)
+            return generics.DestroyAPIView.delete(self, request, *args, **kwargs)
