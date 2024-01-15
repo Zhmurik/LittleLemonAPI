@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DBNavigator.Project.DataEditorManager">
+    <record-view-column-sorting-type value="BY_INDEX" />
+    <value-preview-text-wrapping value="false" />
+    <value-preview-pinned value="false" />
+  </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
@@ -11,8 +16,21 @@
       <console name="Connection" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
+  <component name="DBNavigator.Project.DatabaseEditorStateManager">
+    <last-used-providers />
+  </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
+  </component>
+  <component name="DBNavigator.Project.DatabaseSessionManager">
+    <connection id="ecfb25bc-7269-4446-962a-862ee115d6e9" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="ecfb25bc-7269-4446-962a-862ee115d6e9" dataset="main.LittleLemonAPI_menuitem" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="ecfb25bc-7269-4446-962a-862ee115d6e9" dataset="main.auth_user" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="ecfb25bc-7269-4446-962a-862ee115d6e9" dataset="main.LittleLemonAPI_cart" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="ecfb25bc-7269-4446-962a-862ee115d6e9" dataset="main.auth_user_groups" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="ecfb25bc-7269-4446-962a-862ee115d6e9" dataset="main.LittleLemonAPI_order" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
@@ -26,7 +44,7 @@
           <description value="" />
           <database-type value="SQLITE" />
           <config-type value="BASIC" />
-          <database-version value="3.41" />
+          <database-version value="3.44" />
           <driver-source value="BUNDLED" />
           <driver-library value="" />
           <driver value="" />
@@ -85,7 +103,7 @@
           <tcp-port-from value="4000" />
           <tcp-port-to value="4999" />
         </debugger>
-        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false">
+        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false" hide-audit-columns="false">
           <object-type-filter>
             <object-type name="SCHEMA" enabled="true" />
             <object-type name="USER" enabled="true" />
@@ -263,6 +281,7 @@
       <confirmations>
         <save-changes value="false" />
         <revert-changes value="true" />
+        <exit-on-changes value="ASK" />
       </confirmations>
     </code-editor-settings>
     <code-completion-settings>
