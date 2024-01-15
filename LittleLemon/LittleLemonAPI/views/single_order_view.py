@@ -26,8 +26,19 @@ class SingleOrderView(APIView):
             serializer = self.order_item_serializer(order_items, many=True)
             return Response(serializer.data)
 
-    # def put(self, request, *args, **kwargs):
-    #     pass
+    def put(self, request, *args, **kwargs):
+        """
+        Updates the order. A manager can use this endpoint to set a delivery crew to this order, and also update the order status to 0 or 1
+        """
+        order = Order.objects.filter(pk=kwargs['pk']).first()
+        if request.user.groups.filter(name__in=['Manager']).exists():
+            serializer = self.order_serializer_manager(order, data=request.data, partial=True)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            return Response(serializer.data, 200)
+            return Response(self.order_serializer(order).data, 200)
+        else:
+            return Response({"message": "Access denied"}, 403)
 
     def patch(self, request, *args, **kwargs):
         """
