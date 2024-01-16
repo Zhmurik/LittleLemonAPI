@@ -1,3 +1,4 @@
+from djoser.conf import User
 from rest_framework import serializers
 from .models import MenuItem, Cart, Order, OrderItem
 
@@ -60,3 +61,11 @@ class OrderItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderItem
         fields = ['id', 'order', 'menuitem', 'quantity', 'unit_price', 'price']
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['email']
+
+

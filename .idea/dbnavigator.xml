@@ -30,7 +30,9 @@
     <filter-actions connection-id="ecfb25bc-7269-4446-962a-862ee115d6e9" dataset="main.auth_user" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="ecfb25bc-7269-4446-962a-862ee115d6e9" dataset="main.LittleLemonAPI_cart" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="ecfb25bc-7269-4446-962a-862ee115d6e9" dataset="main.auth_user_groups" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="ecfb25bc-7269-4446-962a-862ee115d6e9" dataset="main.auth_user_user_permissions" active-filter-id="" />
     <filter-actions connection-id="ecfb25bc-7269-4446-962a-862ee115d6e9" dataset="main.LittleLemonAPI_order" active-filter-id="" />
+    <filter-actions connection-id="ecfb25bc-7269-4446-962a-862ee115d6e9" dataset="main.auth_group" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />

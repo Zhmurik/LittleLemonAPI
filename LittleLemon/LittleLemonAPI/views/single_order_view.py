@@ -59,7 +59,6 @@ class SingleOrderView(APIView):
         else:
             return Response({"message": "Access denied"}, 403)
 
-
     def delete(self, request, *args, **kwargs):
         """
         Deletes this order
