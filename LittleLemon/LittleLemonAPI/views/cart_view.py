@@ -1,5 +1,6 @@
 from django.contrib import auth
 from rest_framework import generics, status
+from rest_framework.throttling import AnonRateThrottle, UserRateThrottle
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
@@ -10,6 +11,7 @@ from ..serializers import CartSerializer
 class CartView(generics.RetrieveDestroyAPIView, generics.CreateAPIView):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
+    throttle_classes = [AnonRateThrottle, UserRateThrottle]
     permission_classes = [IsAuthenticated]
 
     def get_object(self):

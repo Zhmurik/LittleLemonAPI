@@ -7,6 +7,9 @@ from djoser.conf import User
 
 
 class GroupManagementView(APIView):
+    """ Returns all managers """
+    """ Assigns the user in the payload to the manager group and returns 201-Created """
+
     user_queryset = User.objects.all()
     user_serializer = UserSerializer
 
@@ -28,7 +31,10 @@ class GroupManagementView(APIView):
             return Response({"message": "Access denied"}, 403)
 
 
-class GroupManagementSingleView(APIView):
+class SingleGroupManagementView(APIView):
+    """Removes this particular user from the manager group and returns 200 – Success if everything is okay.
+        If the user is not found, returns 404 – Not found """
+
     user_queryset = User.objects.all()
 
     def delete(self, request, *args, **kwargs):
@@ -42,6 +48,9 @@ class GroupManagementSingleView(APIView):
 
 
 class GroupDeliveryCrewView(APIView):
+    """ Returns all delivery crew"""
+    """ Assigns the user in the payload to delivery crew group and returns 201-Created HTTP """
+
     user_queryset = User.objects.all()
     user_serializer = UserSerializer
 
@@ -63,7 +72,9 @@ class GroupDeliveryCrewView(APIView):
             return Response({"message": "Access denied"}, 403)
 
 
-class GroupDeliveryCrewSingleView(APIView):
+class SingleGroupDeliveryCrewView(APIView):
+    """ Removes this user from the manager group and returns 200 – Success if everything is okay.
+        If the user is not found, returns  404 – Not found """
     user_queryset = User.objects.all()
 
     def delete(self, request, *args, **kwargs):

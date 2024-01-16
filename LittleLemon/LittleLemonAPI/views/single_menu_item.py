@@ -1,4 +1,5 @@
 from rest_framework import generics
+from rest_framework.throttling import AnonRateThrottle, UserRateThrottle
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
@@ -7,8 +8,10 @@ from ..serializers import MenuItemSerializer
 
 
 class SingleMenuItemView(generics.RetrieveUpdateDestroyAPIView, generics.CreateAPIView):
+    """ Lists single menu item """
     queryset = MenuItem.objects.all()
     serializer_class = MenuItemSerializer
+    throttle_classes = [AnonRateThrottle, UserRateThrottle]
     permission_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):

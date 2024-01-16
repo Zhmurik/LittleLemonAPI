@@ -1,5 +1,4 @@
 from django.utils.datetime_safe import datetime
-from rest_framework import generics
 from rest_framework.views import APIView
 
 from ..models import Order, Cart, User, OrderItem
