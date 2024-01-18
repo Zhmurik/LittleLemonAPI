@@ -1,10 +1,22 @@
+import django_filters
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics
+from rest_framework.filters import OrderingFilter
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.throttling import AnonRateThrottle, UserRateThrottle
 from rest_framework.response import Response
 
+
 from ..models import MenuItem
 from ..serializers import MenuItemSerializer
+
+
+class MenuItemFilter(django_filters.FilterSet):
+    field_name = django_filters.CharFilter(lookup_expr='icontains')
+
+    class Meta:
+        model = MenuItem
+        fields = '__all__'
 
 
 class MenuItemView(generics.ListCreateAPIView):
@@ -12,6 +24,10 @@ class MenuItemView(generics.ListCreateAPIView):
     serializer_class = MenuItemSerializer
     throttle_classes = [AnonRateThrottle, UserRateThrottle]
     permission_classes = [IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, OrderingFilter]
+    filterset_class = MenuItemFilter
+    ordering_fields = ['price']
+    ordering = ['title']
 
     def post(self, request, *args, **kwargs):
         """
